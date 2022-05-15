@@ -20,20 +20,20 @@ Groups=Start:1
 Context=None|
 Groups=Start:1
 1|WinActivate||1|333|WinActivate||ahk_class MozillaWindowClass|||1|
-02|GotoMain|_null := |1|0|Function|||||3|
+2|Handle_Tower|_null := |1|0|Function|||||3|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro22
 Context=None|
 Groups=
 1|WinActivate||1|333|WinActivate||ahk_class MozillaWindowClass|||1|
-2|Handle_Character|_null := |1|0|Function||||||
+2|Handle_Special|_null := |1|0|Function||||||
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|GetSoulstones()
 Context=None|
 Groups=Start:1
 1|[FuncParameter]|DoBreak|1|0|FuncParameter|ByRef|||||
 2|[FunctionStart]|GetSoulstones|1|0|UserFunction|Local| / ||||
-3|[LoopStart]|LoopStart|3|0|Loop||||||
+3|[LoopStart]|LoopStart|9|0|Loop||||||
 4|[Assign Variable]|Found := 0|1|0|Variable|Expression|||||
 5|SplashTextOff||1|0|SplashTextOff||||||
 6|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries3of3.PNG|1|0|ImageSearch||Window||||
@@ -42,49 +42,93 @@ Groups=Start:1
 9|Left Move & Click|Rel 0, -10 Left, 1|1|0|Click||||||
 10|[Assign Variable]|Found := 3|1|0|Variable|Expression|||||
 11|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries3of3.PNG|20|100|ImageSearch|UntilNotFound|Window||||
-12|[Else]|Else|1|0|If_Statement||||||
-13|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries2of3.PNG|1|0|ImageSearch||Window||||
-14|If Image/Pixel Found||1|0|If_Statement||||||
-15|Move|750, %FoundY%, 0|1|0|Click||||||
-16|Left Move & Click|Rel 0, -10 Left, 1|1|0|Click||||||
-17|[Assign Variable]|Found := 2|1|0|Variable|Expression|||||
-18|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries2of3.PNG|20|100|ImageSearch|UntilNotFound|Window||||
-19|[Else]|Else|1|0|If_Statement||||||
-20|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries1of3.PNG|1|0|ImageSearch||Window||||
-21|If Image/Pixel Found||1|0|If_Statement||||||
-22|Move|750, %FoundY%, 0|1|0|Click||||||
-23|Left Move & Click|Rel 0, -10 Left, 1|1|0|Click||||||
-24|[Assign Variable]|Found := 1|1|0|Variable|Expression|||||
-25|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries1of3.PNG|20|100|ImageSearch|UntilNotFound|Window||||
-26|[End If]|EndIf|1|0|If_Statement|||||157|
-27|[End If]|EndIf|1|0|If_Statement|||||157|
-28|[End If]|EndIf|1|0|If_Statement|||||157|
-29|[Pause]||1|300|Sleep||||||
-30|Compare Variables|Found > 0|1|0|If_Statement||||||
-31|Left Click, Continue, FoundX, FoundY, 1|548, 687, 800, 751, *55 .\Images\Raid_x.PNG|2|50|ImageSearch||Window||||
-32|If Image/Pixel Found||1|0|If_Statement||||||
-33|[Pause]||1|300|Sleep||||||
-34|Continue, Continue, FoundX, FoundY, 1|548, 687, 800, 751, *55 .\Images\Raid_x.PNG|20|100|ImageSearch|UntilNotFound|Window||||
-35|[Text]|{ESC}|1|0|Send|||||41|
-36|[Pause]||1|600|Sleep||||||
-37|[Text]|{ESC}|1|0|Send|||||41|
-38|[Pause]||1|600|Sleep||||||
-39|[End If]|EndIf|1|0|If_Statement||||||
-40|[Text]|{ESC}|1|0|Send|||||41|
-41|[Pause]||1|1000|Sleep||||||
-42|Continue, Continue, FoundX, FoundY, 0|869, 139, 930, 188, *55 .\Images\Small_Energy.PNG|1|0|ImageSearch||Window||||
-43|If Image/Pixel Found||1|0|If_Statement||||||
-44|[Text]|{ESC}|1|0|Send|||||41|
-45|[Pause]||1|600|Sleep||||||
-46|[End If]|EndIf|1|0|If_Statement|||||157|
-47|[End If]|EndIf|1|0|If_Statement|||||157|
-48|[LoopEnd]|LoopEnd|1|0|Loop||||||
+12|SplashTextOn|200, 30, GetSoulStones, Found 3|1|0|SplashTextOn|||||13|
+13|[Else]|Else|1|0|If_Statement||||||
+14|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries2of3.PNG|1|0|ImageSearch||Window||||
+15|If Image/Pixel Found||1|0|If_Statement||||||
+16|Move|750, %FoundY%, 0|1|0|Click||||||
+17|Left Move & Click|Rel 0, -10 Left, 1|1|0|Click||||||
+18|[Assign Variable]|Found := 2|1|0|Variable|Expression|||||
+19|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries2of3.PNG|20|100|ImageSearch|UntilNotFound|Window||||
+20|SplashTextOn|200, 30, GetSoulStones, Found 2|1|0|SplashTextOn|||||13|
+21|[Else]|Else|1|0|If_Statement||||||
+22|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries1of3.PNG|1|0|ImageSearch||Window||||
+23|If Image/Pixel Found||1|0|If_Statement||||||
+24|Move|750, %FoundY%, 0|1|0|Click||||||
+25|Left Move & Click|Rel 0, -10 Left, 1|1|0|Click||||||
+26|[Assign Variable]|Found := 1|1|0|Variable|Expression|||||
+27|Continue, Continue, FoundX, FoundY, 1|496, 354, 712, 588, *55 .\Images\Tries1of3.PNG|20|100|ImageSearch|UntilNotFound|Window||||
+28|SplashTextOn|200, 30, GetSoulStones, Found 1|1|0|SplashTextOn|||||13|
+29|[End If]|EndIf|1|0|If_Statement|||||157|
+30|[End If]|EndIf|1|0|If_Statement|||||157|
+31|[End If]|EndIf|1|0|If_Statement|||||157|
+32|[Pause]||1|300|Sleep||||||
+33|Compare Variables|Found > 0|1|0|If_Statement||||||
+34|Left Click, Continue, FoundX, FoundY, 1|548, 687, 800, 751, *55 .\Images\Raid_x.PNG|4|100|ImageSearch|UntilFound|Window||||
+35|If Image/Pixel Found||1|0|If_Statement||||||
+36|[Pause]||1|300|Sleep||||||
+37|Continue, Continue, FoundX1, FoundY1, 1|548, 687, 800, 751, *55 .\Images\Raid_x.PNG|20|100|ImageSearch|UntilNotFound|Window||||
+38|SplashTextOn|200, 30, GetSoulStones, Found Raid X|1|0|SplashTextOn|||||13|
+39|[Pause]||1|300|Sleep||||||
+40|Continue, Continue, FoundX1, FoundY1, 0|656, 302, 736, 374, *55 .\Images\Exit_X.PNG|1|0|ImageSearch||Window||||
+41|If Image/Pixel Found||1|0|If_Statement||||||
+42|SplashTextOn|200, 30, GetSoulStones, Found Exit (NoVIP)|1|0|SplashTextOn|||||13|
+43|[Text]|{ESC}|1|0|Send|||||41|
+44|[Pause]||1|600|Sleep||||||
+45|Left Move & Click|Rel -100, 0 Left, 1|1|10|Click||||||
+46|[Pause]||1|300|Sleep||||||
+47|Continue, Continue, FoundX1, FoundY1, 1|548, 687, 800, 751, *55 .\Images\Raid_x.PNG|20|100|ImageSearch|UntilNotFound|Window||||
+48|[Text]|{ESC}|1|0|Send|||||41|
 49|[Pause]||1|600|Sleep||||||
-50|Continue, Continue, FoundX, FoundY|841, 221, 862, 245, 0xEFBC66, 10, Fast RGB|1|0|PixelSearch||Window||||
-51|If Image/Pixel Found||1|0|If_Statement||||||
-52|[Text]|{ESC}|1|0|Send|||||41|
-53|[Pause]||1|600|Sleep||||||
-54|[End If]|EndIf|1|0|If_Statement|||||157|
+50|[Else]|Else|1|0|If_Statement||||||
+51|Compare Variables|Found > 1|1|0|If_Statement||||||
+52|SplashTextOn|200, 30, GetSoulStones, Collect|1|0|SplashTextOn|||||13|
+53|[Text]|{ESC}|1|0|Send|||||41|
+54|[Pause]||1|600|Sleep||||||
+55|[Text]|{ESC}|1|0|Send|||||41|
+56|[Pause]||1|600|Sleep||||||
+57|Continue, Continue, FoundX, FoundY, 0|439, 559, 614, 642, *55 .\Images\Special_Sammeln.PNG|4|200|ImageSearch|UntilFound|Window||||
+58|If Image/Pixel Found||1|0|If_Statement||||||
+59|SplashTextOn|200, 30, GetSoulStones, Collect F1|1|0|SplashTextOn|||||13|
+60|[Text]|{ESC}|1|0|Send|||||41|
+61|[Pause]||1|600|Sleep||||||
+62|[End If]|EndIf|1|0|If_Statement||||||
+63|SplashTextOn|200, 30, GetSoulStones, Collect 2|1|0|SplashTextOn|||||13|
+64|Continue, Continue, FoundX, FoundY, 0|439, 559, 614, 642, *5 .\Images\Special_Sammeln.PNG|4|200|ImageSearch|UntilFound|Window||||
+65|If Image/Pixel Found||1|0|If_Statement||||||
+66|SplashTextOn|200, 30, GetSoulStones, Collect F2|1|0|SplashTextOn|||||13|
+67|[Text]|{ESC}|1|0|Send|||||41|
+68|[Pause]||1|600|Sleep||||||
+69|[End If]|EndIf|1|0|If_Statement||||||
+70|[End If]|EndIf|1|0|If_Statement|||||157|
+71|Continue, Continue, FoundX1, FoundY1, 0|656, 302, 736, 374, *55 .\Images\Exit_X.PNG|1|0|ImageSearch||Window||||
+72|If Image/Pixel Found||1|0|If_Statement||||||
+73|[Text]|{ESC}|1|0|Send|||||41|
+74|[Pause]||1|600|Sleep||||||
+75|[End If]|EndIf|1|0|If_Statement||||||
+76|[End If]|EndIf|1|0|If_Statement|||||157|
+77|[Else]|Else|1|0|If_Statement||||||
+78|[Text]|{ESC}|1|0|Send|||||41|
+79|[Pause]||1|1000|Sleep||||||
+80|Break||1|0|Break||||||
+81|[End If]|EndIf|1|0|If_Statement||||||
+82|[Text]|{ESC}|1|0|Send|||||41|
+83|[Pause]||1|1000|Sleep||||||
+84|Continue, Continue, FoundX, FoundY, 0|869, 139, 930, 188, *55 .\Images\Small_Energy.PNG|1|0|ImageSearch||Window||||
+85|If Image/Pixel Found||1|0|If_Statement||||||
+86|[Text]|{ESC}|1|0|Send|||||41|
+87|[Pause]||1|600|Sleep||||||
+88|[End If]|EndIf|1|0|If_Statement|||||157|
+89|[Else]|Else|1|0|If_Statement||||||
+90|Break||1|0|Break||||||
+91|[End If]|EndIf|1|0|If_Statement|||||157|
+92|[LoopEnd]|LoopEnd|1|0|Loop||||||
+93|[Pause]||1|600|Sleep||||||
+94|Continue, Continue, FoundX, FoundY|841, 221, 862, 245, 0xEFBC66, 10, Fast RGB|1|0|PixelSearch||Window||||
+95|If Image/Pixel Found||1|0|If_Statement||||||
+96|[Text]|{ESC}|1|0|Send|||||41|
+97|[Pause]||1|600|Sleep||||||
+98|[End If]|EndIf|1|0|If_Statement|||||157|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|StartHW()
 Context=None|
@@ -123,7 +167,7 @@ Groups=Start:1
 32|Continue, Continue, FoundX, FoundY|734, 351, 759, 374, 0xDB3F09, 5, Fast RGB|20|200|PixelSearch|UntilFound|Window|||48|
 33|SplashTextOn|200, 30, Hero Wars, Logon|1|0|SplashTextOn|||||55|
 34|[Pause]||1|300|Sleep|||||56|
-35|Random|Rnd, 1, 4|1|0|Random|||||57|
+35|Random|Rnd, 1, 5|1|0|Random|||||57|
 36|[LoopStart]|LoopStart|%Rnd%|0|Loop|||||58|
 37|[Text]|{DOWN}|1|0|Send|||||60|
 38|[Pause]||1|500|Sleep|||||61|
@@ -355,41 +399,42 @@ Groups=Start:1
 39|[Else]|Else|1|0|If_Statement|||||111|
 40|[Text]|{ESC}|1|0|Send|||||114|
 41|[Pause]||1|300|Sleep|||||115|
-42|Left Click, Continue, FoundX, FoundY, 1|342, 293, 699, 635, *70 .\Images\Fight_Escape.PNG|4|200|ImageSearch||Window|||116|
+42|Left Click, Continue, FoundX, FoundY, 1|342, 293, 699, 635, *70 .\Images\Fight_Escape.PNG|4|200|ImageSearch|UntilFound|Window|||116|
 43|If Image/Pixel Found||1|0|If_Statement|||||125|
-44|[Pause]||1|300|Sleep|||||127|
-45|Break||1|0|Break|||||128|
-46|[End If]|EndIf|1|0|If_Statement|||||129|
-47|[End If]|EndIf|1|0|If_Statement|||||130|
-48|Left Click, Continue, FoundX, FoundY, 1|910, 650, 1002, 697, *55 .\Images\Green_LED_Off.png|1|0|ImageSearch||Window|||131|
-49|SplashTextOn|200, 30, Fight mode, fight ongoing .|1|0|SplashTextOn|||||136|
-50|Continue, Continue, FoundX, FoundY|960, 168, 994, 203, 0x47A21E, 30, Fast RGB|1200|200|PixelSearch|UntilNotFound|Window|||137|
-51|SplashTextOn|200, 30, Fight mode, fight ongoing ..|1|0|SplashTextOn|||||144|
-52|Continue, Continue, FoundX, FoundY|673, 244, 689, 296, 0x970000, 5, Fast RGB|200|100|PixelSearch|UntilFound|Window|||145|
-53|SplashTextOn|200, 30, Fight mode, fight end .|1|0|SplashTextOn|||||152|
-54|[LoopStart]|LoopStart|0|0|Loop|||||153|
-55|Continue, Continue, FoundX, FoundY|551, 610, 565, 666, 0x47A21E, 30, Fast RGB|5|200|PixelSearch|UntilFound|Window|||155|
-56|If Image/Pixel Found||1|0|If_Statement|||||162|
-57|[Pause]||1|300|Sleep|||||164|
-58|Left Click, Continue, FoundX, FoundY, 1|300, 550, 800, 800, *20 .\Images\Fight_OK.PNG|1|100|ImageSearch||Window|||165|
-59|If Image/Pixel Found||1|0|If_Statement|||||174|
-60|Move|Rel 0, -30, 0|1|10|Click||||||
-61|Move, Continue, FoundX, FoundY, 0|300, 550, 800, 800, *20 .\Images\Fight_OK.PNG|8|100|ImageSearch|UntilNotFound|Window|||176|
-62|Continue, Continue, FoundX, FoundY|673, 244, 689, 266, 0x970000, 5, Fast RGB|1|100|PixelSearch||Window|||185|
-63|If Image/Pixel Found||1|0|If_Statement|||||188|
-64|SplashTextOn|200, 30, Fight mode, fight end retry.|1|0|SplashTextOn|||||190|
-65|[Else]|Else|1|0|If_Statement|||||191|
-66|SplashTextOn|200, 30, Fight mode, fight end !|1|0|SplashTextOn|||||194|
-67|Break||1|0|Break|||||195|
-68|[End If]|EndIf|1|0|If_Statement|||||196|
-69|[Else]|Else|1|0|If_Statement|||||191|
-70|SplashTextOn|200, 30, Fight mode, fight no OK !|1|0|SplashTextOn|||||190|
-71|[End If]|EndIf|1|0|If_Statement|||||197|
-72|[End If]|EndIf|1|0|If_Statement|||||198|
-73|[Pause]||1|300|Sleep|||||199|
-74|[LoopEnd]|LoopEnd|1|0|Loop|||||200|
-75|SplashTextOn|200, 30, Fight mode, end|1|0|SplashTextOn|||||201|
-76|[End If]|EndIf|1|0|If_Statement|||||202|
+44|SplashTextOn|200, 30, Fight mode, fight break .|1|0|SplashTextOn|||||109|
+45|[Pause]||1|300|Sleep|||||127|
+46|[FuncReturn]||1|0|FuncReturn||||||
+47|[End If]|EndIf|1|0|If_Statement|||||129|
+48|[End If]|EndIf|1|0|If_Statement|||||130|
+49|Left Click, Continue, FoundX, FoundY, 1|910, 650, 1002, 697, *55 .\Images\Green_LED_Off.png|1|0|ImageSearch||Window|||131|
+50|SplashTextOn|200, 30, Fight mode, fight ongoing .|1|0|SplashTextOn|||||136|
+51|Continue, Continue, FoundX, FoundY|960, 168, 994, 203, 0x47A21E, 30, Fast RGB|1200|200|PixelSearch|UntilNotFound|Window|||137|
+52|SplashTextOn|200, 30, Fight mode, fight ongoing ..|1|0|SplashTextOn|||||144|
+53|Continue, Continue, FoundX, FoundY|673, 244, 689, 296, 0x970000, 5, Fast RGB|200|100|PixelSearch|UntilFound|Window|||145|
+54|SplashTextOn|200, 30, Fight mode, fight end .|1|0|SplashTextOn|||||152|
+55|[LoopStart]|LoopStart|0|0|Loop|||||153|
+56|Continue, Continue, FoundX, FoundY|551, 610, 565, 666, 0x47A21E, 30, Fast RGB|5|200|PixelSearch|UntilFound|Window|||155|
+57|If Image/Pixel Found||1|0|If_Statement|||||162|
+58|[Pause]||1|300|Sleep|||||164|
+59|Left Click, Continue, FoundX, FoundY, 1|300, 550, 800, 800, *20 .\Images\Fight_OK.PNG|1|100|ImageSearch||Window|||165|
+60|If Image/Pixel Found||1|0|If_Statement|||||174|
+61|Move|Rel 0, -30, 0|1|10|Click||||||
+62|Move, Continue, FoundX, FoundY, 0|300, 550, 800, 800, *20 .\Images\Fight_OK.PNG|8|100|ImageSearch|UntilNotFound|Window|||176|
+63|Continue, Continue, FoundX, FoundY|673, 244, 689, 266, 0x970000, 5, Fast RGB|1|100|PixelSearch||Window|||185|
+64|If Image/Pixel Found||1|0|If_Statement|||||188|
+65|SplashTextOn|200, 30, Fight mode, fight end retry.|1|0|SplashTextOn|||||190|
+66|[Else]|Else|1|0|If_Statement|||||191|
+67|SplashTextOn|200, 30, Fight mode, fight end !|1|0|SplashTextOn|||||194|
+68|Break||1|0|Break|||||195|
+69|[End If]|EndIf|1|0|If_Statement|||||196|
+70|[Else]|Else|1|0|If_Statement|||||191|
+71|SplashTextOn|200, 30, Fight mode, fight no OK !|1|0|SplashTextOn|||||190|
+72|[End If]|EndIf|1|0|If_Statement|||||197|
+73|[End If]|EndIf|1|0|If_Statement|||||198|
+74|[Pause]||1|300|Sleep|||||199|
+75|[LoopEnd]|LoopEnd|1|0|Loop|||||200|
+76|SplashTextOn|200, 30, Fight mode, end|1|0|SplashTextOn|||||201|
+77|[End If]|EndIf|1|0|If_Statement|||||202|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|DoChores()
 Context=None|
@@ -532,6 +577,7 @@ Groups=Start:1
 136|SplashTextOn|200, 30, , - ende -|1|0|SplashTextOn|||||419|
 137|GotoMain|_null := |1|0|Function|||||420|
 138|[Pause]||1|300|Sleep|||||421|
+139|Continue, Continue, FoundX1, FoundY1, 1|548, 687, 800, 751, *55 .\Images\Raid_x.PNG|20|100|ImageSearch|UntilNotFound|Window||||
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Handle_Mail()
 Context=None|
@@ -590,9 +636,9 @@ Groups=Start:1
 15|SplashTextOn|200, 30, Tower, Fight ...|1|0|SplashTextOn|||||33|
 16|Move|300, 407, 0|1|10|Click|||||34|
 17|[Pause]||1|300|Sleep|||||36|
-18|Left Click, Continue, FoundX, FoundY, 0|200, 200, 1000, 700, *60 .\Images\Green_Ueberspringen.PNG|3|200|ImageSearch|UntilFound|Window|||37|
+18|Left Click, Continue, FoundX, FoundY, 0|200, 200, 1000, 700, *65 .\Images\Green_Ueberspringen.PNG|3|200|ImageSearch|UntilFound|Window|||37|
 19|If Image/Pixel Found||1|0|If_Statement|||||46|
-20|Continue, Continue, FoundX, FoundY, 0|0, 0, 1440, 900, *60 .\Images\Green_Ueberspringen.PNG|8|100|ImageSearch|UntilNotFound|Window|||48|
+20|Continue, Continue, FoundX, FoundY, 0|0, 0, 1440, 900, *65 .\Images\Green_Ueberspringen.PNG|8|100|ImageSearch|UntilNotFound|Window|||48|
 21|SplashTextOn|200, 30, Tower, Fight leap...|1|0|SplashTextOn|||||55|
 22|[Pause]||1|2000|Sleep|||||56|
 23|SplashTextOn|200, 30, Tower, ...|1|0|SplashTextOn|||||57|
@@ -773,73 +819,86 @@ Groups=Start:1
 13|SplashTextOn|200, 30, Special, 1 Collect|1|0|SplashTextOn|||||38|
 14|[Assign Variable]|lTop := 312|1|0|Variable|Expression||||39|
 15|[Assign Variable]|lRetry := FALSE|1|0|Variable|Expression||||40|
-16|Left Click, Continue, FoundX, FoundY|355, 343, 889, 655, 0xBC8732, 4, Fast RGB|1|0|PixelSearch||Window|||41|
-17|If Image/Pixel Found||1|0|If_Statement|||||45|
-18|Move, Continue, FoundX2, FoundY2|%FoundX%, %FoundY%, %FoundX%, %FoundY%, 0xBC8732, 4, Fast RGB|8|100|PixelSearch|UntilNotFound|Window|||47|
-19|SplashTextOn|200, 30, Special, 1Daily|1|0|SplashTextOn|||||56|
-20|[Pause]||1|1000|Sleep|||||57|
-21|Left Click, Continue, FoundX, FoundY, 1|423, 551, 634, 673, *60 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||58|
-22|If Image/Pixel Found||1|0|If_Statement|||||63|
-23|[Else]|Else|1|0|If_Statement|||||65|
-24|[Text]|{ESC}|1|0|Send|||||68|
-25|[Assign Variable]|lRetry := TRUE|1|0|Variable|Expression||||69|
-26|[Pause]||1|500|Sleep|||||70|
-27|[End If]|EndIf|1|0|If_Statement|||||71|
-28|[End If]|EndIf|1|0|If_Statement|||||72|
-29|Evaluate Expression|lRetry|1|0|If_Statement|||||73|
-30|Left Click, Continue, FoundX, FoundY|342, 334, 910, 721, 0xFAE00A, 4, Fast RGB|1|0|PixelSearch||Window|||75|
-31|If Image/Pixel Found||1|0|If_Statement|||||79|
-32|Move, Continue, FoundX2, FoundY2|%FoundX%, %FoundY%, %FoundX%, %FoundY%, 0xBC8732, 4, Fast RGB|8|100|PixelSearch|UntilNotFound|Window|||81|
-33|SplashTextOn|200, 30, Special, 2Daily|1|0|SplashTextOn|||||90|
+16|SplashTextOff||1|0|SplashTextOff||||||
+17|Left Click, Continue, FoundX3, FoundY3, 0|355, 343, 889, 655, *55 .\Images\Special_Dly_VIP.PNG|1|0|ImageSearch||Window|||41|
+18|If Image/Pixel Found||1|0|If_Statement|||||45|
+19|Move, Continue, FoundX2, FoundY2|%FoundX%, %FoundY%, %FoundX%, %FoundY%, 0xBC8732, 4, Fast RGB|8|100|PixelSearch|UntilNotFound|Window|||47|
+20|SplashTextOn|200, 30, Special, 1Daily|1|0|SplashTextOn|||||56|
+21|[Pause]||1|1000|Sleep|||||57|
+22|Left Click, Continue, FoundX, FoundY, 1|423, 551, 634, 673, *60 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||58|
+23|If Image/Pixel Found||1|0|If_Statement|||||63|
+24|[Else]|Else|1|0|If_Statement|||||65|
+25|[Text]|{ESC}|1|0|Send|||||68|
+26|[Assign Variable]|lRetry := TRUE|1|0|Variable|Expression||||69|
+27|[Pause]||1|500|Sleep|||||70|
+28|[End If]|EndIf|1|0|If_Statement|||||71|
+29|[End If]|EndIf|1|0|If_Statement|||||72|
+30|Evaluate Expression|lRetry|1|0|If_Statement|||||73|
+31|[Assign Variable]|FoundX3 := FoundX3-60|1|0|Variable|Expression|||||
+32|Left Move & Click|%FoundX3%, %FoundY3% Left, 1|1|10|Click||||||
+33|SplashTextOn|200, 30, Special, 3Daily|1|0|SplashTextOn|||||90|
 34|[Pause]||1|1000|Sleep|||||91|
 35|Left Click, Continue, FoundX, FoundY, 1|423, 551, 634, 673, *60 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||92|
 36|If Image/Pixel Found||1|0|If_Statement|||||97|
-37|[Else]|Else|1|0|If_Statement|||||99|
-38|[Text]|{ESC}|1|0|Send|||||102|
-39|[End If]|EndIf|1|0|If_Statement|||||103|
-40|[End If]|EndIf|1|0|If_Statement|||||104|
+37|[Assign Variable]|lRetry := FALSE|1|0|Variable|Expression||||69|
+38|[Else]|Else|1|0|If_Statement|||||99|
+39|[Text]|{ESC}|1|0|Send|||||102|
+40|[End If]|EndIf|1|0|If_Statement|||||103|
 41|[End If]|EndIf|1|0|If_Statement|||||105|
-42|[End If]|EndIf|1|0|If_Statement|||||106|
-43|Left Click, Continue, FoundX, FoundY, 1|398, 471, 656, 606, *60 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||107|
-44|If Image/Pixel Found||1|0|If_Statement|||||112|
-45|SplashTextOn|200, 30, Special, 1 Collect|1|0|SplashTextOn|||||114|
-46|[End If]|EndIf|1|0|If_Statement|||||115|
-47|Left Click, Continue, FoundX, FoundY|374, 322, 940, 433, 0xFFFF9F, 5, Fast RGB|1|0|PixelSearch||Window|||116|
-48|If Image/Pixel Found||1|0|If_Statement|||||120|
-49|SplashTextOn|200, 30, Special, 2|1|0|SplashTextOn|||||122|
-50|[Assign Variable]|lBreak := FALSE|1|0|Variable|Expression||||123|
-51|[LoopStart]|LoopStart|0|0|Loop|lBreak||||124|
-52|Left Click, Continue, FoundX, FoundY, 0|756, 404, 915, 628, *70 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||126|
-53|If Image/Pixel Found||1|0|If_Statement|||||130|
-54|SplashTextOn|200, 30, Special, 3|1|0|SplashTextOn|||||132|
-55|Move, Continue, FoundX, FoundY|768, 482, 917, 565, 0x58B52B, 10, Fast RGB|8|100|PixelSearch|UntilNotFound|Window|||133|
-56|[Pause]||1|1000|Sleep|||||142|
-57|[Else]|Else|1|0|If_Statement|||||143|
-58|SplashTextOn|200, 30, Special, 4|1|0|SplashTextOn|||||146|
-59|[Assign Variable]|lBreak := TRUE|1|0|Variable|Expression||||147|
-60|[Pause]||1|300|Sleep|||||148|
-61|[End If]|EndIf|1|0|If_Statement|||||149|
-62|Move, Continue, FoundX, FoundY|768, 482, 917, 565, 0x3F9CEB, 5, Fast RGB|1|0|PixelSearch||Window|||150|
-63|If Image/Pixel Found||1|0|If_Statement|||||154|
-64|SplashTextOn|200, 30, Special, 5|1|0|SplashTextOn|||||156|
-65|[Assign Variable]|lBreak := TRUE|1|0|Variable|Expression||||157|
-66|[Pause]||1|300|Sleep|||||158|
-67|[End If]|EndIf|1|0|If_Statement|||||159|
-68|[LoopEnd]|LoopEnd|1|0|Loop|||||160|
-69|[Pause]||1|300|Sleep|||||162|
-70|[Else]|Else|1|0|If_Statement|||||163|
-71|SplashTextOn|200, 30, Special, 2--|1|0|SplashTextOn|||||166|
-72|[Add Variable]|lTop += 5|1|0|Variable|Expression||||167|
-73|Left Click, Continue, FoundX, FoundY, 0|646, 317, 940, 438, *70 .\Images\Special_Siegel.PNG|1|0|ImageSearch||Window|||168|
-74|[Pause]||1|1000|Sleep|||||172|
-75|Left Click, Continue, FoundX, FoundY, 0|756, 404, 915, 628, *70 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||173|
-76|[End If]|EndIf|1|0|If_Statement|||||177|
-77|[Else]|Else|1|0|If_Statement|||||178|
-78|[Assign Variable]|lBreak2 := TRUE|1|0|Variable|Expression||||181|
-79|[End If]|EndIf|1|0|If_Statement|||||182|
-80|[LoopEnd]|LoopEnd|1|0|Loop|||||183|
-81|[Text]|{ESC}|1|0|Send|||||185|
-82|Continue, Continue, FoundX, FoundY|1006, 133, 1023, 159, 0x3B3521, 5, Fast RGB|8|200|PixelSearch|UntilNotFound|Window|||186|
+42|Evaluate Expression|lRetry|1|0|If_Statement|||||73|
+43|Left Click, Continue, FoundX, FoundY|342, 334, 910, 721, 0xFAE00A, 4, Fast RGB|1|0|PixelSearch||Window|||75|
+44|If Image/Pixel Found||1|0|If_Statement|||||79|
+45|Move, Continue, FoundX2, FoundY2|%FoundX%, %FoundY%, %FoundX%, %FoundY%, 0xBC8732, 4, Fast RGB|8|100|PixelSearch|UntilNotFound|Window|||81|
+46|SplashTextOn|200, 30, Special, 2Daily|1|0|SplashTextOn|||||90|
+47|[Pause]||1|1000|Sleep|||||91|
+48|Left Click, Continue, FoundX, FoundY, 1|423, 551, 634, 673, *60 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||92|
+49|If Image/Pixel Found||1|0|If_Statement|||||97|
+50|[Else]|Else|1|0|If_Statement|||||99|
+51|[Text]|{ESC}|1|0|Send|||||102|
+52|[End If]|EndIf|1|0|If_Statement|||||103|
+53|[End If]|EndIf|1|0|If_Statement|||||104|
+54|[End If]|EndIf|1|0|If_Statement|||||105|
+55|[End If]|EndIf|1|0|If_Statement|||||106|
+56|Left Click, Continue, FoundX, FoundY, 1|398, 471, 656, 606, *60 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||107|
+57|If Image/Pixel Found||1|0|If_Statement|||||112|
+58|SplashTextOn|200, 30, Special, 1 Collect|1|0|SplashTextOn|||||114|
+59|[End If]|EndIf|1|0|If_Statement|||||115|
+60|Left Click, Continue, FoundX, FoundY|374, 322, 940, 433, 0xFFFF9F, 5, Fast RGB|1|0|PixelSearch||Window|||116|
+61|If Image/Pixel Found||1|0|If_Statement|||||120|
+62|SplashTextOn|200, 30, Special, 2|1|0|SplashTextOn|||||122|
+63|[Assign Variable]|lBreak := FALSE|1|0|Variable|Expression||||123|
+64|[LoopStart]|LoopStart|0|0|Loop|lBreak||||124|
+65|Left Click, Continue, FoundX, FoundY, 0|756, 404, 915, 628, *70 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||126|
+66|If Image/Pixel Found||1|0|If_Statement|||||130|
+67|SplashTextOn|200, 30, Special, 3|1|0|SplashTextOn|||||132|
+68|Move, Continue, FoundX, FoundY|768, 482, 917, 565, 0x58B52B, 10, Fast RGB|8|100|PixelSearch|UntilNotFound|Window|||133|
+69|[Pause]||1|1000|Sleep|||||142|
+70|[Else]|Else|1|0|If_Statement|||||143|
+71|SplashTextOn|200, 30, Special, 4|1|0|SplashTextOn|||||146|
+72|[Assign Variable]|lBreak := TRUE|1|0|Variable|Expression||||147|
+73|[Pause]||1|300|Sleep|||||148|
+74|[End If]|EndIf|1|0|If_Statement|||||149|
+75|Move, Continue, FoundX, FoundY|768, 482, 917, 565, 0x3F9CEB, 5, Fast RGB|1|0|PixelSearch||Window|||150|
+76|If Image/Pixel Found||1|0|If_Statement|||||154|
+77|SplashTextOn|200, 30, Special, 5|1|0|SplashTextOn|||||156|
+78|[Assign Variable]|lBreak := TRUE|1|0|Variable|Expression||||157|
+79|[Pause]||1|300|Sleep|||||158|
+80|[End If]|EndIf|1|0|If_Statement|||||159|
+81|[LoopEnd]|LoopEnd|1|0|Loop|||||160|
+82|[Pause]||1|300|Sleep|||||162|
+83|[Else]|Else|1|0|If_Statement|||||163|
+84|SplashTextOn|200, 30, Special, 2--|1|0|SplashTextOn|||||166|
+85|[Add Variable]|lTop += 5|1|0|Variable|Expression||||167|
+86|Left Click, Continue, FoundX, FoundY, 0|646, 317, 940, 438, *70 .\Images\Special_Siegel.PNG|1|0|ImageSearch||Window|||168|
+87|[Pause]||1|1000|Sleep|||||172|
+88|Left Click, Continue, FoundX, FoundY, 0|756, 404, 915, 628, *70 .\Images\Special_Sammeln.PNG|1|0|ImageSearch||Window|||173|
+89|[End If]|EndIf|1|0|If_Statement|||||177|
+90|[Else]|Else|1|0|If_Statement|||||178|
+91|[Assign Variable]|lBreak2 := TRUE|1|0|Variable|Expression||||181|
+92|[End If]|EndIf|1|0|If_Statement|||||182|
+93|[LoopEnd]|LoopEnd|1|0|Loop|||||183|
+94|[Text]|{ESC}|1|0|Send|||||185|
+95|Continue, Continue, FoundX, FoundY|1006, 133, 1023, 159, 0x3B3521, 5, Fast RGB|8|200|PixelSearch|UntilNotFound|Window|||186|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Handle_FrLand()
 Context=None|
@@ -916,7 +975,7 @@ Groups=Start:1
 35|Move, Continue, FoundX, FoundY|455, 600, 465, 620, 0x58B52B, 21, Fast RGB|8|200|PixelSearch|UntilNotFound|Window|||130|
 36|[End If]|EndIf|1|0|If_Statement|||||139|
 37|Move, Continue, FoundX, FoundY|980, 142, 1002, 162, 0x3B3521, 21, Fast RGB|16|200|PixelSearch|UntilNotFound|Window|||140|
-38|[Pause]||1|500|Sleep|||||149|
+38|SplashTextOn|200, 30, GetSoulStones, Found Raid x|1|0|SplashTextOn|||||149|
 39|[End If]|EndIf|1|0|If_Statement|||||150|
 40|[Else]|Else|1|0|If_Statement|||||151|
 41|[Text]|{ESC}|1|0|Send|||||154|
@@ -1042,7 +1101,7 @@ Groups=Start:1
 2|WinActivate||1|333|WinActivate||ahk_class MozillaWindowClass|||3|
 3|SplashTextOn|200, 30, Handle Daylies, .|1|0|SplashTextOn|||||5|
 4|[Pause]||1|300|Sleep|||||6|
-5|Continue, Continue, FoundX, FoundY, 0|404, 190, 561, 273, *75 .\Images\Daily_Title.png|16|200|ImageSearch|UntilFound|Window|||7|
+5|Continue, Continue, FoundX, FoundY, 0|523, 211, 619, 278, *75 .\Images\Daily_Title.png|16|200|ImageSearch|UntilFound|Window|||7|
 6|If Image/Pixel Found||1|0|If_Statement|||||14|
 7|[Assign Variable]|lBreak := FALSE|1|0|Variable|Expression|||||
 8|[LoopStart]|LoopStart|0|0|Loop|lBreak||||16|
@@ -1072,6 +1131,7 @@ Groups=Start:1
 32|Move, Continue, FoundX, FoundY|980, 142, 1002, 162, 0x3B3521, 21, Fast RGB|16|200|PixelSearch|UntilNotFound|Window|||64|
 33|[End If]|EndIf|1|0|If_Statement|||||73|
 34|[Pause]||1|500|Sleep|||||74|
+35|[Text]|{ESC}|1|0|Send|||||63|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Handle_Quests()
 Context=None|
@@ -1127,9 +1187,39 @@ Groups=Start:1
 1|[FunctionStart]|Handle_Arena|1|0|UserFunction|Local| / ||||
 2|WinActivate||1|333|WinActivate||ahk_class MozillaWindowClass|||3|
 3|SplashTextOn|200, 30, Handle Arena, .|1|0|SplashTextOn|||||5|
-04|[Pause]||1|300|Sleep|||Fight Once||6|
-5|[Text]|{ESC}|1|0|Send|||||63|
-06|[Pause]||1|300|Sleep|||End ...||6|
+4|Move, Continue, FoundX, FoundY, 0|443, 169, 611, 234, *55 .\Images\Arena_Title.PNG|4|100|ImageSearch|UntilFound|Window||||
+5|If Image/Pixel Found||1|0|If_Statement||||||
+6|SplashTextOn|200, 30, Handle Arena, ..|1|0|SplashTextOn|||||5|
+7|Move, Continue, FoundX, FoundY, 0|735, 469, 837, 564, *55 .\Images\Arena_Change.PNG|4|100|ImageSearch|UntilFound|Window||||
+8|If Image/Pixel Found||1|0|If_Statement||||||
+9|SplashTextOn|200, 30, Handle Arena, ...|1|0|SplashTextOn|||||5|
+10|[Pause]||1|300|Sleep|||Fight Once||6|
+11|SplashTextOff||1|0|SplashTextOff||||||
+12|Left Click, Continue, FoundX, FoundY|600, 478, 658, 546, 0x4AA81E, 55, Fast RGB|4|100|PixelSearch|UntilFound|Window||||
+13|If Image/Pixel Found||1|0|If_Statement||||||
+14|[Pause]||1|300|Sleep|||Fight Once||6|
+15|Continue, Continue, FoundX, FoundY|600, 478, 658, 546, 0x4AA81E, 55, Fast RGB|20|100|PixelSearch|UntilNotFound|Window||||
+16|SplashTextOn|200, 30, Handle Arena, ...|1|0|SplashTextOn|||||5|
+017|[Pause]||1|300|Sleep|||Fight Once||6|
+18|Continue, Continue, FoundX, FoundY, 0|675, 353, 730, 401, .\Images\Exit_X.PNG|1|0|ImageSearch||Window||||
+19|If Image/Pixel Not Found||1|0|If_Statement||||||
+20|FightMode|_null := 2|1|0|Function|||||81|
+21|[Else]|Else|1|0|If_Statement||||||
+22|[Text]|{ESC}|1|0|Send|||||63|
+23|[End If]|EndIf|1|0|If_Statement||||||
+24|[Else]|Else|1|0|If_Statement||||||
+025|[Pause]||1|300|Sleep|||Fight Once||6|
+26|[End If]|EndIf|1|0|If_Statement||||||
+027|[Pause]||1|300|Sleep|||Fight Once||6|
+28|[Else]|Else|1|0|If_Statement||||||
+029|[Pause]||1|300|Sleep|||Fight Once||6|
+30|[End If]|EndIf|1|0|If_Statement||||||
+031|[Pause]||1|300|Sleep|||Fight Once||6|
+32|[Else]|Else|1|0|If_Statement||||||
+033|[Pause]||1|300|Sleep|||Fight Once||6|
+34|[End If]|EndIf|1|0|If_Statement||||||
+35|[Text]|{ESC}|1|0|Send|||||63|
+036|[Pause]||1|300|Sleep|||End ...||6|
 
 [PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Handle_Character()
 Context=None|
@@ -1144,17 +1234,17 @@ Groups=Start:1
 8|Continue, Continue, FoundX, FoundY, 0|381, 174, 648, 243, *75 .\Images\Title_AlleHelden.PNG|16|200|ImageSearch|UntilNotFound|Window|||7|
 9|[Pause]||1|1000|Sleep||||||
 10|[LoopStart]|LoopStart|40|0|Loop|IsLast = TRUE|||||
-11|NextChar|_null := IsLast|1|0|Function||||||
-12|[Pause]||1|1000|Sleep||||||
-13|Move, Continue, FoundX, FoundY, 1|805, 600, 840, 635, *70 .\Images\Red_LED2.png|4|250|ImageSearch|UntilFound|Window|||123|
-14|If Image/Pixel Found||1|0|If_Statement|||||133|
-15|Left Move & Click|Rel 0, 10 Left, 1|1|10|Click|||||135|
-16|SplashTextOn|200, 30, Character, Find Soul-stone|1|0|SplashTextOn|||||137|
-17|Continue, Continue, FoundX, FoundY, 1|805, 600, 840, 635, *70 .\Images\Red_LED2.png|8|100|ImageSearch|UntilNotFound|Window|||138|
-18|[Pause]||1|500|Sleep|||||146|
-19|Move, Continue, FoundX, FoundY|980, 142, 1002, 162, 0x3B3521, 21, Fast RGB|16|200|PixelSearch|UntilFound|Window|||147|
-20|GetSoulstones|_null := DoBreak|1|0|Function|||||156|
-21|[End If]|EndIf|1|0|If_Statement|||||157|
+11|Move, Continue, FoundX, FoundY, 1|805, 600, 840, 635, *70 .\Images\Red_LED2.png|4|250|ImageSearch|UntilFound|Window|||123|
+12|If Image/Pixel Found||1|0|If_Statement|||||133|
+13|Left Move & Click|Rel 0, 10 Left, 1|1|10|Click|||||135|
+14|SplashTextOn|200, 30, Character, Find Soul-stone|1|0|SplashTextOn|||||137|
+15|Continue, Continue, FoundX, FoundY, 1|805, 600, 840, 635, *70 .\Images\Red_LED2.png|8|100|ImageSearch|UntilNotFound|Window|||138|
+16|[Pause]||1|500|Sleep|||||146|
+17|Move, Continue, FoundX, FoundY|980, 142, 1002, 162, 0x3B3521, 21, Fast RGB|16|200|PixelSearch|UntilFound|Window|||147|
+18|GetSoulstones|_null := DoBreak|1|0|Function|||||156|
+19|[End If]|EndIf|1|0|If_Statement|||||157|
+20|NextChar|_null := IsLast|1|0|Function||||||
+21|[Pause]||1|1000|Sleep||||||
 22|[LoopEnd]|LoopEnd|1|0|Loop||||||
 23|[Text]|{ESC}|1|0|Send|||||41|
 24|[Pause]||1|300|Sleep||||||
@@ -1273,4 +1363,14 @@ Groups=Start:1
 6|[End If]|EndIf|1|0|If_Statement||||||
 07|SplashTextOn|200, 30, NextChar, X: %FoundX%|1|0|SplashTextOn|||||29|
 8|[Assign Variable]|IsLast := FoundX>820|1|0|Variable|Expression|||||
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro32
+Context=None|
+Groups=
+
+[PMC Code v5.4.1]|||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro33
+Context=None|
+Groups=
+1|Left Move & Click|FoundX3, FoundY3 Left, 1|1|10|Click||||||
+2|Left Move & Click|FoundX3, FoundY3 Left, 1|1|10|Click||||||
 
